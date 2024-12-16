@@ -44,7 +44,7 @@ export default function HomeScreen() {
     }
 
     // Função para alterar status da tarefa
-    function toogleTaskStatus(id) {
+    function toggleTaskStatus(id) {
         const updatedTasks = tasks.map(task =>
             task.id === id ? { ...task, completed: !task.completed } : task
         );
@@ -74,7 +74,7 @@ export default function HomeScreen() {
                 data={tasks}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => toggleTaskCompletion(item.id)} onLongPress={() => deleteTask(item.id)}>
+                    <TouchableOpacity onPress={() => toggleTaskStatus(item.id)} onLongPress={() => deleteTask(item.id)}>
                         <Text style={[styles.task, item.completed && styles.completedTask]}>
                             {item.text}
                         </Text>
